@@ -4,13 +4,13 @@ const StatusBadge = (item) => {
   return (
     <div>
        {(() => {
-        if (status === "Dead") {
+        if (status === 'Dead') {
           return (
             <div className={` position-absolute badge bg-danger`}>
               {status}
             </div>
           );
-        } else if (status === "Alive") {
+        } else if (status === 'Alive') {
           return (
             <div className={` position-absolute badge bg-success`}>
               {status}

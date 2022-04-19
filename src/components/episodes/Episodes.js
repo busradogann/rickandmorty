@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate'; 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import './episodes.scss';
 
@@ -30,13 +30,13 @@ const Episodes = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="text-center mt-3 mb-3">
-        <span className="text-warning">Episodes</span>
+    <div className='container'>
+      <h2 className='text-center mt-3 mb-3'>
+        <span className='text-warning'>Episodes</span>
       </h2>
-      <div className="list-group mb-5">
+      <div className='list-group mb-5'>
       {data.map(item => (
-        <Link style={{ textDecoration: "none" }} to={`${item.id}`} key={item.id} className="list-group-item list-group-item-action list-group-item-dark">
+        <Link style={{ textDecoration: 'none' }} to={`${item.id}`} key={item.id} className='list-group-item list-group-item-action list-group-item-success'>
           {item.name}
         </Link>
       ))}
@@ -54,9 +54,9 @@ const Episodes = () => {
           pageClassName={'page'}
           disabledClassNae={'disabled'}
           activeClassName={'active'}
-          breakLabel="..."
-          nextLabel=" >"
-          previousLabel="< "
+          breakLabel='...'
+          nextLabel=' >'
+          previousLabel='< '
         />
       ) : (
         <div>Nothing to display</div>

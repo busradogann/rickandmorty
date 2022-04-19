@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import qs from 'qs';
 
 import Filter from '../filter/Filter';
 import StatusBadge from '../badges/StatusBadge';
@@ -7,24 +8,26 @@ import StatusBadge from '../badges/StatusBadge';
 
 const Episode = () => {
   let { id } = useParams();
-  let [results, setResults] = useState([]);
-  let [info, setInfo] = useState([]);
+  const [results, setResults] = useState([]);
+  const [info, setInfo] = useState([]);
+  const [filters, setFilters] = useState([]);
   let { air_date, name } = info;
-  let api = `https://rickandmortyapi.com/api/episode/${id}`;
+  let parsedQuery = qs.stringify(filters);
+  let api = `https://rickandmortyapi.com/api/episode/${id}?${parsedQuery}`;
 
   useEffect(() => {
     (async function () {
       let data = await fetch(api).then((res) => res.json());
       setInfo(data);
 
-      let a = await Promise.all(
+      let response = await Promise.all(
         data.characters.map((x) => {
           return fetch(x).then((res) => res.json());
         })
       );
-      setResults(a);
+      setResults(response);
     })();
-  }, [api]);
+  }, [api, filters]);
   
   
   return (
@@ -43,7 +46,7 @@ const Episode = () => {
 
         <div className='row'>
           <div className='col-lg-3'>
-            <Filter />
+            <Filter setFilters={setFilters} />
           </div>
           <div className='col-lg-9'>
             <ul className='characters'>
@@ -53,13 +56,6 @@ const Episode = () => {
                 <Link style={{ textDecoration: 'none' }} to={`/${item.id}`} key={item.id}>
                   <img src={item.image} className='card-img-top' alt={item.name}/>
                 </Link>
-                
-                {item.status ? 
-                  <span className='badge rounded-pill bg-success'>
-                    {item.status}
-                  </span>: 
-                  ``
-                }
 
                 <StatusBadge item={item} />
 

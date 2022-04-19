@@ -22,8 +22,8 @@ function App() {
             <Route path="/" element={< CharacterList />} />
             <Route path="/:id" element={<Character />} />
 
-            <Route path="/episode" element={< Episodes />} />
-            <Route path="/episode/:id" element={< Episode />} />
+            <Route path="/api/episode" element={< Episodes />} />
+            <Route path="/api/episode/:id" element={< Episode />} />
           </Routes>
         </div>
       </div>
