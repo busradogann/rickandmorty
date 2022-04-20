@@ -1,3 +1,7 @@
+/* StatusBadge componenti listeleme sayfalarında karakter status badge'leri için oluşturuldu. 
+Badgeler karakter statusune göre farklı renkte basılıyor.
+*/
+
 const StatusBadge = (item) => {
   const status = item.item.status;
 

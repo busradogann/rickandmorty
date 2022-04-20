@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import './episodes.scss';
 
 
+/* Episodes componenti dizinin tüm bölümlerini listeler, yapılan seçime göre bölüm detayına yönlendirilir. */
+
 const Episodes = () => {
   const [data, setData] = useState([]);
   const [pageCount, setPageCount] = useState(1); 

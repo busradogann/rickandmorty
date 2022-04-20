@@ -36,6 +36,9 @@ function filterReducer(state, action) {
   }
 }
 
+/* Filter componenti filtreleme alanı için oluşturuldu. Listeleme sayfalarında kullanılıyor. 
+Burada seçilen filtre bilgisi listeleme komponentine iletilip ona göre request atılıyor. */
+
 const Filter = ({setFilters}) => {
   const [filters, dispatch] = useReducer(filterReducer, initialFilters);
 

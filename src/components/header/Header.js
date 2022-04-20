@@ -4,6 +4,8 @@ import {
 import React, { useState } from 'react';
 
 
+/* Bu component sayfanın header alanı için oluşturuldu, sayfa yönlendirmeleri yapılıyor. */
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 

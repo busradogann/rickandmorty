@@ -6,6 +6,8 @@ import Filter from '../filter/Filter';
 import StatusBadge from '../badges/StatusBadge';
 
 
+/* Episode componenti seçilen bölümdeki oyuncuların listelenmesi için oluşturuldu. */
+
 const Episode = () => {
   let { id } = useParams();
   const [results, setResults] = useState([]);

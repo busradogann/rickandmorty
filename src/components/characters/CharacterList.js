@@ -3,11 +3,13 @@ import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 import qs from 'qs';
 
-
 import Filter from '../filter/Filter';
 import StatusBadge from '../badges/StatusBadge';
 import '../characters/characterList.scss';
 
+
+/* CharacterList componenti karakterlerin listelenmesi için oluşturuldu. 
+Filter componentinden varsa filtreleme bilgisini alarak karakterler getiriliyor. */
 
 const CharacterList = () => {
     const [data, setData] = useState([]);
@@ -32,6 +34,7 @@ const CharacterList = () => {
       fetchData();
     }, [filters, currentPage]);
 
+    /* handlePageChange fonksiyonu sayfa geçişlerini sağlar. */
     const handlePageChange = (selectedObject) => {
 		  setcurrentPage(selectedObject.selected + 1);
 	  };

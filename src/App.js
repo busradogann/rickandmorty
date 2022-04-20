@@ -11,6 +11,7 @@ import Character from './components/character/Character';
 import Episodes from './components/episodes/Episodes';
 import Episode from './components/episode/Episode';
 
+/* App componenti yönlenecek url'ler ve komponentlerini barındırıyor. */
 
 function App() {
   return (

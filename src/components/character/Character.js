@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+
+/* Character componenti karakterlerin detay sayfası için oluşturuldu. name, location, gender, status gibi bilgiler yer alıyor. */
+
 const Character = () => {
   let { id } = useParams();
 
