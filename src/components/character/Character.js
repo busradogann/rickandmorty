@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 /* Character componenti karakterlerin detay sayfası için oluşturuldu. name, location, gender, status gibi bilgiler yer alıyor. */
+
+
+const getIdFromUrl = url => url.substring(url.lastIndexOf('/') + 1)
+
 
 const Character = () => {
   let { id } = useParams();
@@ -56,7 +60,7 @@ const Character = () => {
               <span className='fw-bold'>Episodes: </span>
               {episode?.map(episodeLink => (
                 <div key={episodeLink}>
-                  <a href={episodeLink} className='text-success'>{episodeLink}</a>
+                  <Link to={`/api/episode/${getIdFromUrl(episodeLink)}`} id={episodeLink} className='text-success'>{episodeLink}</Link>
                 </div>
               ))}
             </div>
