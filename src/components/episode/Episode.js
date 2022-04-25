@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import qs from 'qs';
 
 import Filter from '../filter/Filter';
 import StatusBadge from '../badges/StatusBadge';
@@ -14,8 +13,7 @@ const Episode = () => {
   const [info, setInfo] = useState([]);
   const [filters, setFilters] = useState([]);
   let { air_date, name } = info;
-  let parsedQuery = qs.stringify(filters);
-  let api = `https://rickandmortyapi.com/api/episode/${id}?${parsedQuery}`;
+  let api = `https://rickandmortyapi.com/api/episode/${id}`;
 
   useEffect(() => {
     (async function () {
@@ -27,7 +25,30 @@ const Episode = () => {
           return fetch(x).then((res) => res.json());
         })
       );
-      setResults(response);
+
+      // const res = Object.values(response).filter(x => (x.status==filters.status) && (x.gender==filters.gender));
+      const res = response.filter(
+        obj => {
+          if(filters.status !== undefined && filters.gender !== undefined && filters.species !== undefined) {
+            return obj.status === filters.status && obj.gender === filters.gender && obj.species === filters.species;
+          } else if (filters.species !== undefined && filters.gender !== undefined) {
+            return obj.species === filters.species && obj.gender === filters.gender;
+          } else if (filters.species !== undefined && filters.status !== undefined) {
+            return obj.species === filters.species && obj.status === filters.status;
+          } else if (filters.gender !== undefined && filters.status !== undefined) {
+            return obj.gender === filters.gender && obj.status === filters.status;
+          } else if (filters.status !== undefined) {
+            return obj.status === filters.status;
+          } else if (filters.gender !== undefined) {
+            return obj.gender === filters.gender;
+          } else if (filters.species !== undefined) {
+            return obj.species === filters.species;
+          } else {
+            return obj;
+          }
+        }
+      );
+      setResults(res);
     })();
   }, [api, filters]);
   

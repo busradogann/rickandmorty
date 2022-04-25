@@ -32,7 +32,7 @@ const CharacterList = () => {
         setisLoaded(true); 
       };
       fetchData();
-    }, [filters, currentPage]);
+    }, [filters, currentPage, parsedQuery]);
 
     /* handlePageChange fonksiyonu sayfa geçişlerini sağlar. */
     const handlePageChange = (selectedObject) => {

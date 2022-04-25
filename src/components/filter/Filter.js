@@ -14,7 +14,7 @@ function filterReducer(state, action) {
     case 'name':
       return {...state, name: action.value}
     case 'status':
-      const allowedStatuses = new Set(['alive', 'dead', 'unknown'])
+      const allowedStatuses = new Set(['Alive', 'Dead', 'unknown'])
       if (allowedStatuses.has(action.value)) {
         return {...state, status: action.value}
       } else {
@@ -25,7 +25,7 @@ function filterReducer(state, action) {
     case 'type':
       return {...state, type: action.value}
     case 'gender':
-      const allowedGenders = new Set(['female', 'male', 'genderless', 'unknown'])
+      const allowedGenders = new Set(['Female', 'Male', 'Genderless', 'Unknown'])
       if (allowedGenders.has(action.value)) {
         return {...state, gender: action.value}
       } else {
@@ -60,12 +60,12 @@ const Filter = ({setFilters}) => {
         <div className='collapse multi-collapse show' id='multiCollapseExample1'>
           <div className='card-body'>
             <span className='mx-1 mb-2 d-inline-block'>
-              <button className='btn btn-success' onClick={() => dispatch({type: 'status', value: 'alive'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+              <button className='btn btn-success' onClick={() => dispatch({type: 'status', value: 'Alive'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                 Alive
               </button>
             </span>
             <span className='mx-1 mb-2 d-inline-block'>
-              <button className='btn btn-danger' onClick={() => dispatch({type: 'status', value: 'dead'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+              <button className='btn btn-danger' onClick={() => dispatch({type: 'status', value: 'Dead'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                 Dead
               </button>
             </span>
@@ -90,22 +90,22 @@ const Filter = ({setFilters}) => {
         <div className='collapse multi-collapse' id='multiCollapseExample2'>
           <div className='card-body'>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'gender', value: 'female'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'gender', value: 'Female'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Female
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'gender', value: 'male'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'gender', value: 'Male'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Male
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'gender', value: 'genderless'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'gender', value: 'Genderless'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Genderless
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'gender', value: 'unknown'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'gender', value: 'Unknown'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Unknown
                 </button>
               </span>
@@ -125,37 +125,37 @@ const Filter = ({setFilters}) => {
         <div className='collapse multi-collapse' id='multiCollapseExample3'>
           <div className='card-body'>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'human'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'Human'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Human
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'alien'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'Alien'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Alien
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'humanoid'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'Humanoid'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Humanoid
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'poopybutthole'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'Poopybutthole'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Poopybutthole
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'animal'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'Animal'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Animal
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'robot'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'Robot'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Robot
                 </button>
               </span>
               <span className='mx-1 mb-2 d-inline-block'>
-                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'cronenberg'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
+                <button className='btn btn-secondary' onClick={() => dispatch({type: 'species', value: 'Cronenberg'})} type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample'>
                   Cronenberg
                 </button>
               </span>
